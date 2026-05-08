@@ -1,26 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { PetsTable } from "@/components/pets-table";
+import {
+  Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList,
+  BreadcrumbPage, BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Current Pets — Pawfolio" },
+      { name: "description", content: "View and manage adoptable pets currently in your rescue's care." },
+    ],
+  }),
+  component: CurrentPetsPage,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function CurrentPetsPage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="p-6 space-y-6">
+      <div className="space-y-3">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#">Adoption</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Current Pets</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight">Current Pets</h1>
+          <p className="text-sm text-muted-foreground">
+            All adoptable pets currently in foster, transit, or recently placed.
+          </p>
+        </div>
+      </div>
+      <PetsTable />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
