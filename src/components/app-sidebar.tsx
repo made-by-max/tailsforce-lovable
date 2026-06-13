@@ -101,7 +101,7 @@ export function AppSidebar() {
                 </Avatar>
                 <div className="flex min-w-0 flex-col leading-tight">
                   <span className="truncate text-sm font-medium">Avery Morgan</span>
-                  <span className="truncate text-xs text-muted-foreground">avery@pawfolio.org</span>
+                  <span className="truncate text-xs text-muted-foreground">averymorgan@pawfolio.org</span>
                 </div>
               </a>
             </SidebarMenuButton>
