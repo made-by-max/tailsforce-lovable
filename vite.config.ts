@@ -8,7 +8,6 @@ import tsConfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [
     tanstackStart({ server: { entry: "server" } }),
-    nitro({ preset: "netlify" }),
     viteReact(),
     tailwindcss(),
     tsConfigPaths(),
